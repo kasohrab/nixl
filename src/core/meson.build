@@ -13,7 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-nixl_lib_deps = [nixl_infra, serdes_interface]
+dl_dep = dependency('dl')
+
+nixl_lib_deps = [nixl_infra, serdes_interface, dl_dep]
 
 if 'UCX' in static_plugins
     nixl_lib_deps += [ ucx_backend_interface, cuda_dep ]
