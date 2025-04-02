@@ -50,7 +50,7 @@ if ucx_path != ''
   ucx_lib_path = ucx_path + '/lib'
   ucx_inc_path = ucx_path + '/include'
   ucx_dep = declare_dependency(
-    link_args : ['-L' + ucx_lib_path, '-lucp', '-lucs', '-luct'],
+    link_args : ['-L' + ucx_lib_path, '-lucp', '-lucs', '-luct', '-lucm'],
     include_directories : include_directories(ucx_inc_path))
 else
   ucx_dep = dependency('ucx')
