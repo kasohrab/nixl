@@ -13,20 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-[build-system]
-requires = ["meson-python", "pybind11", "patchelf"]
-build-backend = "mesonpy"
-
-[project]
-name = 'nixl'
-version = '0.1.1'
-description = 'NIXL Python API'
-readme = 'README.md'
-license = {file = 'LICENSE'}
-requires-python = '>=3.9'
-authors = [
-  {name = 'NIXL Developers', email = 'nixl-developers@nvidia.com'}
-]
-
-[tool.meson-python.args]
-setup = ['-Dinstall_headers=false']
+nixl_example = executable('nixl_example',
+           'nixl_example.cpp',
+           dependencies: [nixl_dep, nixl_infra, ucx_backend_dep, ucx_dep],
+           include_directories: [nixl_inc_dirs, utils_inc_dirs],
+           link_with: [serdes_lib],
+           install: true)

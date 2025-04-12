@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project('nixl', 'CPP', version: '0.1.0',
+project('nixl', 'CPP', version: '0.1.1',
     default_options: ['buildtype=debug',
                 'werror=true',
                 'cpp_std=c++17',
@@ -87,6 +87,7 @@ subdir('src')
 
 if get_option('buildtype') != 'release'
   subdir('test')
+  subdir('examples')
 endif
 
 if get_option('install_headers')
